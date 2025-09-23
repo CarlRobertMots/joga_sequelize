@@ -3,18 +3,18 @@
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
   async up (queryInterface, Sequelize) {
-    queryInterface.changeColumn('Articles', 'id', {
-      type: Sequelize.INTEGER,
-      autoIncrement: true,
-      primaryKey: true,
-      allowNull: false
-    });
+    // queryInterface.changeColumn('Articles', 'id', {
+    //type: Sequelize.INTEGER,
+    //autoIncrement: true,
+      //primaryKey: true,
+      //allowNull: false
+    //});
     queryInterface.changeColumn('Articles', 'name', {
       type: Sequelize.STRING,
       allowNull: false
     });
     queryInterface.changeColumn('Articles', 'slug', {
-      type: Sequelize.TEXT,
+      type: Sequelize.STRING(255),
       allowNull: false,
       unique: true
     });

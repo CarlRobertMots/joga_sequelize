@@ -24,6 +24,7 @@ const sequelize = new Sequelize(process.env.DB_NAME, process.env.DB_USER, proces
 
 const articleRouter = require("./routes/article")
 app.use("/", articleRouter)
+app.use("/article", articleRouter)
 
 
 app.listen(3027, () => {

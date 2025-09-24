@@ -1,18 +1,17 @@
-const { configDotenv } = require("dotenv")
 const express = require("express")
 const app = express()
-
 
 app.use(express.json())
 app.use(express.urlencoded({extended: true }))
 
 //connect to db
-configDotenv()
-    const { Sequelize } = require('sequelize');
-    const sequelize = new Sequelize(process.env.DB_NAME, process.env.DB_USER, process.env.DB_PASSWORD, {
+require("dotenv").config()
+const { Sequelize } = require('sequelize');
+const sequelize = new Sequelize(process.env.DB_NAME, process.env.DB_USER, process.env.DB_PASSWORD, {
     host: process.env.DB_HOST,
-    dialect: process.env.DB_DRIVER
-});
+    dialect: 'mysql'
+})
+
 //test db connection
     sequelize
     .authenticate()
@@ -23,9 +22,9 @@ configDotenv()
         console.log("Error: " + err)
     })
 
-app.get("/", (req,res) => {
-    res.json({ message: "Welcome to sequelize app"} )
-})
+const articleRouter = require("./routes/article")
+app.use("/", articleRouter)
+
 
 app.listen(3027, () => {
     console.log("Server is running on http://localhost:3027")

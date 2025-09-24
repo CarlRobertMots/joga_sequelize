@@ -34,18 +34,20 @@ module.exports = (sequelize, DataTypes) => {
       allowNull: false
     },
     body: {
-      type:DataTypes.STRING,
+      type:DataTypes.TEXT,
       allowNull: false
     },
     published: {
-      type:DataTypes.STRING,
+      type:DataTypes.DATE,
       allowNull: false
     },
-    author_id: DataTypes.STRING,
+    author_id: DataTypes.INTEGER,
    
   }, {
     sequelize,
     modelName: 'Article',
+    tableName: 'Articles',
+
   });
   return Article;
 };

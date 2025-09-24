@@ -27,6 +27,7 @@ app.use("/", articleRouter)
 app.use("/article", articleRouter)
 
 
-app.listen(3027, () => {
-    console.log("Server is running on http://localhost:3027")
+
+app.listen(3028, () => {
+    console.log("Server is running on http://localhost:3028")
 } )

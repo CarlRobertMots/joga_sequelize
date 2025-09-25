@@ -7,14 +7,14 @@ const { Article, Author } = require('../models'); // import models
 // read models data
 const models = require('../models');
 
-// get all data from table
+
 class AuthorController {
 
 // get all authors
     getAllAuthors = async (req, res) => {
         try {
-            const authors = await Author.findAll()
-                res.status(200).json({ authors });
+            const authors = await Author.findAll();
+            res.status(200).json({ authors });
         } catch (error) {
             res.status(500).json({ error: 'Failed to fetch authors' });
         }

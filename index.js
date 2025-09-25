@@ -23,14 +23,14 @@ const sequelize = new Sequelize(process.env.DB_NAME, process.env.DB_USER, proces
     })
 
 const articleRouter = require("./routes/article")
-app.use("/", articleRouter)
+
 app.use("/article", articleRouter)
 
 const authorRouter = require("./routes/author")
-app.use("/", authorRouter)
+
 app.use("/authors", authorRouter)
 
 
-app.listen(3028, () => {
-    console.log("Server is running on http://localhost:3028")
+app.listen(3029, () => {
+    console.log("Server is running on http://localhost:3029")
 } )

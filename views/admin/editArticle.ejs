@@ -1,0 +1,31 @@
+<h1>Edit Article</h1>
+
+<form action="/admin/article/edit/<%= article.id %>" method="POST">
+  <label for="name">Title:</label>
+  <input type="text" name="name" id="name" value="<%= article.name %>" required />
+
+  <label for="slug">Slug:</label>
+  <input type="text" name="slug" id="slug" value="<%= article.slug %>" required />
+
+  <label for="image">Image URL:</label>
+  <input type="text" name="image" id="image" value="<%= article.image %>" required />
+
+  <label for="body">Body:</label>
+  <textarea name="body" id="body" rows="6"><%= article.body %></textarea>
+
+  <label for="author_id">Author:</label>
+  <select name="author_id" id="author_id">
+    <% authors.forEach(author => { %>
+      <option value="<%= author.id %>" <%= author.id === article.author_id ? 'selected' : '' %> >
+        <%= author.name %>
+      </option>
+    <% }) %>
+  </select>
+
+  <button type="submit">Update Article</button>
+</form>
+
+<!-- Separate form for deleting -->
+<form action="/admin/article/delete/<%= article.id %>" method="POST" style="margin-top: 20px;">
+  <button type="submit" style="background: red; color: white;">Delete Article</button>
+</form>
